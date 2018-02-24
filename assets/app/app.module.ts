@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MessageComponent } from './messages/message.component';
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
 		FormsModule,
 		RouterModule.forRoot(appRoutes),
 		ReactiveFormsModule,
-		HttpClientModule
+		HttpModule
 	],
 	exports: [RouterModule],
 	providers: [MessageService],

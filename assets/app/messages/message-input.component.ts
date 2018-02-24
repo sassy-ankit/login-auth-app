@@ -14,9 +14,14 @@ export class MessageInputComponent {
 
 	onSave(form: NgForm) {
 		const message = new Message(form.value.content, 'Sassy-Ankit');
-		this.msgService
-			.addMessage(message)
-			.subscribe(data => console.log(data), error => console.log(error));
+		this.msgService.addMessage(message).subscribe(
+			data => {
+				console.log(data);
+			},
+			error => {
+				console.error(error);
+			}
+		);
 		form.resetForm();
 	}
 }
