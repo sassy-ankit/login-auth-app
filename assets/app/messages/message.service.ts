@@ -33,7 +33,7 @@ export class MessageService implements OnInit {
 				let transformedMessages: Message[] = [];
 				for (let message of messages) {
 					transformedMessages.push(
-						new Message(message.content, message.id, 'Dummy', null)
+						new Message(message.content, 'Dummy', message._id, null)
 					);
 				}
 				this.messages = transformedMessages;
