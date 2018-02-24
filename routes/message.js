@@ -10,7 +10,7 @@ router.post('/', function(req, res, next) {
 	message.save(function(err, result) {
 		if (err) {
 			return res.status(500).json({
-				title: 'An error occured while saving message',
+				title: 'An internal error occured while saving message',
 				error: err
 			});
 		}

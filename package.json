@@ -1,13 +1,13 @@
 {
-	"name": "^demy-nodejs-angular2",
-	"version": "^.0.0",
+	"name": "Udemy-nodejs-angular2",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"start": "^ode ./bin/www",
+		"start": "node ./bin/www",
 		"build":
-			"^el-cli public/js/app && webpack --config webpack.config.dev.js --progress --profile --watch",
+			"Del-cli public/js/app && webpack --config webpack.config.dev.js --progress --profile --watch",
 		"build:prod":
-			"^el-cli public/js/app && ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json && webpack --config webpack.config.prod.js --progress --profile --bail && del-cli 'assets/app/**/*.js' 'assets/app/**/*.ngsummary.json' 'assets/app/**/*.ngstyle.*'"
+			"Del-cli public/js/app && ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json && webpack --config webpack.config.prod.js --progress --profile --bail && del-cli 'assets/app/**/*.js' 'assets/app/**/*.ngsummary.json' 'assets/app/**/*.ngstyle.*'"
 	},
 	"dependencies": {
 		"@angular/animations": "^5.0.0",
