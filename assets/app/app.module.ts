@@ -4,11 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
+import { MessageService } from './messages/message.service';
+import { AuthService } from './auth/auth.service';
+
 import { AppComponent } from './app.component';
 import { MessageComponent } from './messages/message.component';
 import { MessageInputComponent } from './messages/message-input.component';
 import { MessageListComponent } from './messages/message-list.component';
-import { MessageService } from './messages/message.service';
 import { MessagesComponent } from './messages/messages.component';
 import { AuthenticationComponent } from './auth/authentication.component';
 import { HeaderComponent } from './header.component';
@@ -54,7 +56,7 @@ const appRoutes: Routes = [
 		HttpModule
 	],
 	exports: [RouterModule],
-	providers: [MessageService],
+	providers: [MessageService, AuthService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
