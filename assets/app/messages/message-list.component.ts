@@ -6,7 +6,7 @@ import { MessageService } from './message.service';
 	selector: 'app-message-list',
 	templateUrl: `
       <div class="row col-md-8 col-md-offset-2">
-        <app-message [inputMessage]="message" (editClicked)="message.content = $event" *ngFor="let message of messages"></app-message>
+        <app-message [inputMessage]="message" *ngFor="let message of messages"></app-message>
       </div>
   `
 })
