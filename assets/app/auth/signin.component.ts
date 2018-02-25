@@ -31,10 +31,9 @@ export class SignInComponent {
 		const user = new User(this.myForm.value.email, this.myForm.value.password);
 		this.authService.signin(user).subscribe(
 			data => {
-				console.log(data);
 				localStorage.setItem('token', data.token);
 				localStorage.setItem('userId', data.userId);
-				// this.router.navigateByUrl('/');
+				this.router.navigateByUrl('/');
 			},
 			err => console.error(err)
 		);
