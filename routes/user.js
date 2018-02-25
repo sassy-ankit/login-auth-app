@@ -52,10 +52,10 @@ router.post('/signin', function(req, res, next) {
 				}
 			});
 		}
-		var jwt = jwt.sign({ user: user }, 'secretKey', { expiresIn: 86400 });
+		var jwttoken = jwt.sign({ user: user }, 'secretKey', { expiresIn: '2d' });
 		res.status(201).json({
 			title: 'Successfully logged in',
-			token: jwt,
+			token: jwttoken,
 			userId: user._id
 		});
 	});
