@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
 
 var User = require('../models/user');
 
-router.post('/', function(req, res, next) {
-	console.log(req.body);
-
+router.post('/signup', function(req, res, next) {
 	var user = new User({
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -28,4 +27,38 @@ router.post('/', function(req, res, next) {
 		});
 	});
 });
+
+router.post('/signin', function(req, res, next) {
+	User.findOne({ email: req.body.email }, function(err, user) {
+		if (err) {
+			return res.status(500).json({
+				title: 'An internal error occured while registering user',
+				error: err
+			});
+		}
+		if (!user) {
+			return res.status(401).json({
+				title: 'Login Failed',
+				error: {
+					message: 'Email is not registered, kindly SIGNUP first'
+				}
+			});
+		}
+		if (!bcrypt.compareSync(req.body.password, user.password)) {
+			return res.status(401).json({
+				title: 'Login Failed',
+				error: {
+					message: 'Wrong Password'
+				}
+			});
+		}
+		var jwt = jwt.sign({ user: user }, 'secretKey', { expiresIn: 86400 });
+		res.status(201).json({
+			title: 'Successfully logged in',
+			token: jwt,
+			userId: user._id
+		});
+	});
+});
+
 module.exports = router;
