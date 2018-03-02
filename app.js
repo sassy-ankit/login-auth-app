@@ -6,13 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/udemy-login-auth', err => {
-	if (err) {
-		console.log('## Error connecting MongoDB: ', err);
-	} else {
-		console.log('## Connected to DB (udemy-login-auth)');
+mongoose.connect(
+	'mongodb://localhost:27017/udemy-login-auth',
+	{ useMongoClient: true },
+	err => {
+		if (err) {
+			console.log('## Error connecting MongoDB: ', err);
+		} else {
+			console.log('## Connected to DB (udemy-login-auth)');
+		}
 	}
-});
+);
 
 var app = express();
 

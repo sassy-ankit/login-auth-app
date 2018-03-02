@@ -29,7 +29,7 @@ server.listen(port, err => {
 	if (err) {
 		console.log('## Error initiating Node Server');
 	} else {
-		console.log('## Server listen on port: ', port);
+		console.log('## Server listen on http://localhost:' + port);
 	}
 });
 server.on('error', onError);
